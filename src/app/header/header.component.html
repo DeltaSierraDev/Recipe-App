@@ -1,12 +1,15 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-style">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
       <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
       </button>
-      <a routerLink="/" class="navbar-brand">Recipe Book</a>
+      <a routerLink="/" class="navbar-brand">
+        <!--<img src="/assets/img/open-book.svg"alt="" width="16px">-->
+        Recipe Book
+      </a>
     </div>
-    <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+    <div class="navbar-collapse navbar-links" [class.collapse]="collapsed" (window:resize)="collapsed = true">
       <ul class="nav navbar-nav">
         <li><a href="#">Recipes</a></li>
         <li><a href="#">Shopping</a></li>

@@ -1,0 +1,19 @@
+.navbar-style {
+  background-color: dodgerblue;
+  border-radius: 0px;
+  border: none;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.navbar-style a {
+  color: whitesmoke
+}
+
+.navbar-links a {
+  color: whitesmoke
+}
+
+.navbar-links a:hover {
+  background-color: steelblue;
+  color: white;
+}
