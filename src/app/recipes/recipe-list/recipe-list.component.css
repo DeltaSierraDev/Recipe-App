@@ -1,0 +1,20 @@
+.recipe-list-head{
+  margin-bottom: 5px;
+}
+
+.table-row-style:hover{
+  background-color: rgba(131, 189, 255, .5);
+  cursor: pointer;
+}
+
+.table-header-style{
+  background-color: lightgray;
+  color: black;
+}
+
+.table-style {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  border-collapse: inherit;
+  overflow: hidden;
+}

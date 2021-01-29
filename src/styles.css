@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+h1, h2, h3, h4 {
+  color: dodgerblue;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+h5, h6 {
+  font-weight: bold;;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+
+.hhr {
+  margin: -6px 0 6px 0;
+  padding: 0;
+  width: 100%;
+  border-top: 1px solid dodgerblue;
+}

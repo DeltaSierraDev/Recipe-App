@@ -1,12 +1,12 @@
 .background {
-  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('/assets/img/bg-pattern.jpg');
+  background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/assets/img/bg-pattern.jpg');
   background-repeat: repeat;
   height: 100vh;
 }
 
 .container-background {
-  background-color: whitesmoke;
-  border: 1px solid #bbb;
+  background-color: white;
+  border: 1px solid dodgerblue;
   border-radius: 5px;
   box-shadow: 2px 2px 5px gray;
 }
