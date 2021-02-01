@@ -11,8 +11,8 @@
     </div>
     <div class="navbar-collapse navbar-links" [class.collapse]="collapsed" (window:resize)="collapsed = true">
       <ul class="nav navbar-nav">
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#">Shopping</a></li>
+        <li><a href="#" (click)="onSelect('recipes')">Recipes</a></li>
+        <li><a href="#" (click)="onSelect('shopping')">Shopping</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shop-project';
+  loadedLink = 'recipes';
+
+  onNavigate(link: string){
+    this.loadedLink = link;
+  }
 }

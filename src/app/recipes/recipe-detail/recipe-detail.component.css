@@ -1,3 +1,7 @@
 .recipe-list-head{
   margin-bottom: 5px;
 }
+
+img {
+  max-height: 240px;
+}

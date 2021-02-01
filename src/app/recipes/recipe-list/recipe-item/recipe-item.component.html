@@ -1,1 +1,4 @@
-<p>Recipe item works</p>
+  <th>{{ i+1 }}</th>
+  <td (click)="onSelected()">{{ recipe.name }}</td>
+  <td>{{ recipe.date | date : 'dd.MM.yyyy.' }}</td>
+  <td>{{ recipe.owner }}</td>

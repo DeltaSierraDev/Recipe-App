@@ -12,24 +12,25 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h5>Recipe Name</h5>
+    <h5>{{ recipe.name }}</h5>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    <p>Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit recusandae ex voluptates, quisquam consectetur reiciendis perferendis similique eaque saepe qui expedita ab. Obcaecati exercitationem sit, consequatur amet hic quos maxime!</p>
+    <p>Created on: {{ recipe.date | date : 'dd.MM.yyyy.' }} by {{ recipe.owner }}</p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    <p>Ingredients Lorem ipsum dolor sit amet consectetur adipisicing elit. Et hic dignissimos, asperiores nisi similique, modi perspiciatis tempora neque provident, vitae excepturi velit ipsam fugiat. Vero dolore rerum neque corrupti eveniet?</p>
+    <p>{{ recipe.desc }}</p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    <img src="" alt="" class="img-responsive">
+    <img [src]="recipe.imagePath" [alt]="recipe.name" class="img-responsive">
+    <br>
   </div>
 </div>

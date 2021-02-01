@@ -10,44 +10,20 @@
     </div>
   </div>
 </div>
-<!--
-<div class="row">
-  <div class="col-xs-12">
-    <a href="#" class="list-group-item clearfix" *ngFor="let recipe of recipes">
-      <div class="pull-left">
-        <h6 class="list-group-item-heading">Recipe Name: {{ recipe.name }}</h6>
-        <p class="list-group-item-text">Description: {{ recipe.desc }}</p>
-      </div>
-      <span class="pull-right">
-        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 50px;">
-      </span>
-    </a>
-  </div>
-</div>
--->
-    <table class="table table-style">
-      <thead>
-        <tr class="table-header-style">
-          <th scope="col">#</th>
-          <th scope="col">Recipe name</th>
-          <th scope="col">Created</th>
-          <th scope="col">Owner</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="table-row-style" *ngFor="let recipe of recipes; let i = index">
-          <th scope="row">{{ i+1 }}</th>
-          <td>{{ recipe.name }}</td>
-          <td>{{ recipe.date | date : 'dd.MM.yyyy.' }}</td>
-          <td>{{ recipe.owner }}</td>
-        </tr>
-
-      </tbody>
-    </table>
-
-
-
-    <app-recipe-item></app-recipe-item>
+<table class="table table-style">
+  <thead>
+    <tr class="table-header-style">
+      <th>#</th>
+      <th>Recipe name</th>
+      <th>Created</th>
+      <th>Owner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-row-style" app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [i]="i"
+    (recipeSelected)="onRecipeSelected(r)"></tr>
+  </tbody>
+</table>
 
 
 

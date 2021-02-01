@@ -6,18 +6,18 @@
       <div class="row">
         <div class="col-sm-4 form-group">
           <label for="name">Name</label>
-          <input type="text" name="" id="name" class="form-control">
+          <input type="text" name="" id="name" class="form-control" #nameInput>
         </div>
         <div class="col-sm-2">
           <label for="amount">Amount</label>
-          <input type="number" name="" id="amount" class="form-control">
+          <input type="number" name="" id="amount" class="form-control" #amountInput>
         </div>
         <div class="col-sm-6">
           <label for="actions">Action</label><br>
           <div class="btn-group btn-group-toggle recipe-list-head" data-toggle="buttons" id="actions">
-            <button type="submit" class="btn btn-success">Add item</button>
-            <button type="button" class="btn btn-warning">Clear </button>
-            <button type="button" class="btn btn-danger">Remove item</button>
+            <button type="submit" class="btn btn-success" (click)="onAddItem()">Add item</button>
+            <button type="button" class="btn btn-warning" (click)="onClearItem()">Clear </button>
+            <button type="button" class="btn btn-danger" (click)="onRemoveItem()">Remove item</button>
           </div>
         </div>
       </div>
