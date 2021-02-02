@@ -18,3 +18,7 @@
   border-collapse: inherit;
   overflow: hidden;
 }
+
+td:hover p{
+  font-weight: bold;
+}

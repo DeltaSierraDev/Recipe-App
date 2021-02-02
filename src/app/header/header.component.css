@@ -17,3 +17,18 @@
   background-color: steelblue;
   color: white;
 }
+
+.open #dd-link{
+  background-color: steelblue;
+  color: whitesmoke;
+}
+
+.dropdown-color {
+  background-color: steelblue;
+  border: 1px solid steelblue;
+}
+
+.dropdown-color li a:hover{
+  background-color: dodgerblue;
+
+}
