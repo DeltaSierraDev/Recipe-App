@@ -20,8 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="table-row-style" app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [i]="i"
-    (recipeSelected)="onRecipeSelected(r)"></tr>
+    <tr class="table-row-style" app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [i]="i"></tr>
   </tbody>
 </table>
 
