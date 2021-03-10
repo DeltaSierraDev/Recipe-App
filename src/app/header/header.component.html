@@ -4,22 +4,22 @@
       <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
       <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
       </button>
-      <a routerLink="/" class="navbar-brand">
+      <a draggable="false" routerLink="/" class="navbar-brand">
         <!--<img src="/assets/img/open-book.svg"alt="" width="16px">-->
         Recipe Book
       </a>
     </div>
-    <div class="navbar-collapse navbar-links" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+    <div class="navbar-collapse navbar-links noselect" [class.collapse]="collapsed" (window:resize)="collapsed = true">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onSelect('recipes')">Recipes</a></li>
-        <li><a href="#" (click)="onSelect('shopping')">Shopping</a></li>
+        <li routerLinkActive="link-active"><a draggable="false" routerLink="/recipes">Recipes</a></li>
+        <li routerLinkActive="link-active"><a draggable="false" routerLink="/shopping-list">Shopping</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdow" appDropdown>
-          <a id="dd-link" href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+          <a id="dd-link" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-color">
-            <li><a href="#">Save</a></li>
-            <li><a href="#">Fetch</a></li>
+            <li><a draggable="false" >Save</a></li>
+            <li><a draggable="false" >Fetch</a></li>
           </ul>
         </li>
       </ul>

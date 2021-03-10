@@ -22,3 +22,15 @@
 td:hover p{
   font-weight: bold;
 }
+
+.row-active {
+  background-color: rgba(131, 189, 255, .3);
+}
+
+.row-active:focus {
+  outline: none;
+}
+
+.row-active:active {
+  outline: none;
+}
