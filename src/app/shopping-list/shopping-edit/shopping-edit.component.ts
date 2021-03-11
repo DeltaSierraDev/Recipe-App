@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Ingridient } from 'src/app/shared/ingridient.model';
+import { Ingridient } from '../../shared/ingridient.model';
 import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
