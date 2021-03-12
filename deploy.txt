@@ -1,6 +1,0 @@
-npm install -g angular-cli-ghpages
-ng build --prod --base-href https://crazieDeveloper.github.io/shop-project/
-angular-cli-ghpages -d dist/shop-project/ --no-silent
-
-
-https://crazieDeveloper.github.io/shop-project/
