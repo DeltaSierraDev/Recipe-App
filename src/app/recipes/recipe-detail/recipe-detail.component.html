@@ -3,15 +3,6 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <div class="btn-group btn-group-toggle recipe-list-head" data-toggle="buttons">
-      <button type="button" class="btn btn-success">Add to Shopping list</button>
-      <button type="button" class="btn btn-danger">Remove from Shopping list</button>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
     <h5>{{ recipe.name }}</h5>
   </div>
 </div>
@@ -30,7 +21,17 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <img [src]="recipe.imagePath" [alt]="recipe.name" class="img-responsive">
+    <img [src]="recipe.imagePath" [alt]="recipe.imagePath" class="img-responsive">
     <br>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group btn-group-toggle recipe-list-head" data-toggle="buttons">
+      <button type="button" class="btn btn-success" (click)="onAddToShoppingList()">Add to Shopping list</button>
+      <button type="button" class="btn btn-danger">Remove from Shopping list</button>
+    </div>
+  </div>
+</div>
+<br>
