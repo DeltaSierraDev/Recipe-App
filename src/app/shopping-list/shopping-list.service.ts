@@ -1,9 +1,10 @@
+import { Ingridient } from './../shared/ingridient.model';
 import { Subject } from "rxjs";
-import { Ingridient } from "../shared/ingridient.model";
 
 export class ShoppingListService {
 
   ingridientsChanged = new Subject<Ingridient[]>();
+  startedEdditing = new Subject<number>();
 
   private ingridients: Ingridient[] = [
     new Ingridient('Meat',1),
@@ -24,6 +25,20 @@ export class ShoppingListService {
 
   addIngredients(ingredients: Ingridient[]) {
     this.ingridients.push(...ingredients);
+    this.ingridientsChanged.next(this.ingridients.slice());
+  }
+
+  getIngredinet(index: number){
+    return this.ingridients[index];
+  }
+
+  updateIngredient(index: number, newIngredient: Ingridient){
+    this.ingridients[index] = newIngredient;
+    this.ingridientsChanged.next(this.ingridients.slice());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingridients.splice(index, 1);
     this.ingridientsChanged.next(this.ingridients.slice());
   }
 }

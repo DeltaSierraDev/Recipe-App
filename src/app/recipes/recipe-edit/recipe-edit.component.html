@@ -1,1 +1,60 @@
-<p>recipe-edit works!</p>
+<h4>Edit recipe</h4>
+<hr class="hhr">
+
+<div class="row">
+  <div class="col-xs-12">
+
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Recipe Name ..." formControlName="name">
+
+            <label for="name">Description</label>
+            <textarea name="desc" id="desc" rows="4" class="form-control" placeholder="Enter recipe descriptrion ..." formControlName="desc"></textarea>
+
+            <label for="name">Image URL</label>
+            <input type="text" name="imageURL" id="imageURL" class="form-control" placeholder="http://example.com/image/id-XYZ" formControlName="imageURL">
+            <img src="" alt="Preview" class="img-responsive">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <label for="">Ingredients</label>
+          <div class="row">
+            <div class="col-xs-7">
+              <input type="text" name="ingredient" id="ingredient" class="form-control" placeholder="Ingredient name ...">
+            </div>
+            <div class="col-xs-3">
+              <input type="number" name="amount" id="amount" class="form-control" placeholder="Amount">
+            </div>
+            <div class="col-xs-2">
+              <div class="text-right">
+                <button class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-right">
+            <div class="btn-group btn-group-toggle recipe-list-head" data-toggle="buttons">
+              <button type="submit" class="btn btn-success">Save</button>
+              <button type="button" class="btn btn-danger">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    <br>
+  </div>
+</div>
