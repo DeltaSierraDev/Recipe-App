@@ -19,35 +19,38 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.subscription = this.recipeService.recipesChanged.subscribe(
       (recipes: Recipe[]) => {
         this.recipes = recipes;
-      })
+      });
 
     this.recipes = this.recipeService.getRecipes();
 
   }
 
+  // tslint:disable-next-line: typedef
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
+  // tslint:disable-next-line: typedef
   onNewRecipe(){
     this.router.navigate(['new'], { relativeTo: this.route });
   }
-
+  // tslint:disable-next-line: typedef
   onEditRecipe(){
-    this.id = this.route.firstChild.snapshot.params['id'];
-    this.router.navigate([this.id,'edit'], { relativeTo: this.route });
+    this.id = this.route.firstChild.snapshot.params.id;
+    this.router.navigate([this.id, 'edit'], { relativeTo: this.route });
   }
-
+  // tslint:disable-next-line: typedef
   onDeleteRecipe(){
     this.recipeService.deleteRecipe(this.id);
-    this.router.navigate(['/recipes'])
+    this.router.navigate(['/recipes']);
   }
-
+  // tslint:disable-next-line: typedef
   onSelectedEnable(){
-    if (this.route.firstChild.snapshot.params['id'] !== undefined) {
+    if (this.route.firstChild.snapshot.params.id !== undefined) {
       return false;
     } else {
       return true;
