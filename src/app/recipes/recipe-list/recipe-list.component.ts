@@ -26,7 +26,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       });
 
     this.recipes = this.recipeService.getRecipes();
-
   }
 
   // tslint:disable-next-line: typedef

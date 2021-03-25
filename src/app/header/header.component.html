@@ -18,8 +18,8 @@
         <li class="dropdow" appDropdown>
           <a id="dd-link" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-color">
-            <li><a draggable="false" >Save</a></li>
-            <li><a draggable="false" >Fetch</a></li>
+            <li><a draggable="false" (click)="onSaveData()">Save</a></li>
+            <li><a draggable="false" (click)="onFetchData()">Fetch</a></li>
           </ul>
         </li>
       </ul>
