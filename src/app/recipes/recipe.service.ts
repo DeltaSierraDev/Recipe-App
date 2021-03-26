@@ -58,7 +58,7 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe){
-    recipe.owner = 'crazieDeveloper';
+    recipe.owner = 'Crazie Developer';
     recipe.date = new Date();
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes.slice());
@@ -67,7 +67,7 @@ export class RecipeService {
 
   updateRecipe(index: number, newRecipe: Recipe){
     this.recipes[index] = newRecipe;
-    this.recipes[index].owner = 'crazieDeveloper'
+    this.recipes[index].owner = 'Crazie Developer'
     this.recipes[index].date = new Date();
     this.recipesChanged.next(this.recipes.slice());
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DataStorageService } from 'src/app/shared/dataStorage.service';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
@@ -16,7 +17,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   id: number;
 
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
@@ -26,6 +27,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       });
 
     this.recipes = this.recipeService.getRecipes();
+    this.dataStorageService.fetchRecipes()
+    .subscribe(
+    );
   }
 
   // tslint:disable-next-line: typedef
