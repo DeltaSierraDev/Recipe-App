@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <!-- [i]="i+1" changed from [i]="i" for table index number, but url params stil from zero -->
-    <tr class="table-row-style" app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [i]="i+1" [routerLink]="[i]" routerLinkActive="row-active"></tr>
+    <tr class="table-row-style" app-recipe-item *ngFor="let r of recipes; let i = index" [recipe]="r" [i]="i+1" [routerLink]="[i]" routerLinkActive="row-active" (click)="onSelectRecipe(i)"></tr>
   </tbody>
 </table>
 

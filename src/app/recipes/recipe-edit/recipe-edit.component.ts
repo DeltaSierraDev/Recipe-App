@@ -27,7 +27,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("SUBMIT");
     const newRecipe = new Recipe(
       this.recipeForm.value['name'],
       this.recipeForm.value['desc'],
@@ -38,8 +37,6 @@ export class RecipeEditComponent implements OnInit {
     } else  {
       this.recipeService.addRecipe(newRecipe);
     }
-    console.log(this.recipeForm.value);
-
     this.onCancel();
   }
 

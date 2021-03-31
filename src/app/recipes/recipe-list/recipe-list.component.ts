@@ -25,11 +25,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       (recipes: Recipe[]) => {
         this.recipes = recipes;
       });
-
     this.recipes = this.recipeService.getRecipes();
     this.dataStorageService.fetchRecipes()
-    .subscribe(
-    );
+    .subscribe();
   }
 
   // tslint:disable-next-line: typedef
@@ -58,5 +56,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     } else {
       return true;
     }
+  }
+
+  onSelectRecipe(index){
+    this.id = index;
   }
 }
