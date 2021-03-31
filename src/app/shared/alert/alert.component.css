@@ -1,0 +1,41 @@
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 50;
+}
+
+.alert-box{
+  position: fixed;
+  width: 40vw;
+  margin: 10vh auto;
+  z-index: 100;
+  background: whitesmoke;
+  border: 1px solid dodgerblue;
+  padding: 0;
+}
+
+.alert-box-header {
+  background: dodgerblue;
+  margin: 0;
+  padding: 6px;
+  overflow: hidden;
+
+}
+
+.alert-box-header h4 {
+  color: whitesmoke;
+}
+
+.alert-box-body {
+  padding: 16px;
+  font-size: 16pt;
+}
+
+.alert-box-footer {
+  text-align: right;
+  padding: 6px;
+}
