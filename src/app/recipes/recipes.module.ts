@@ -13,7 +13,7 @@ import { RecipresResolverService } from './recipeResolver.service';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
-  { path: 'recipes', component: RecipesComponent, canActivate: [ AuthGuard ], children: [
+  { path: '', component: RecipesComponent, canActivate: [ AuthGuard ], children: [
     { path: '', component: RecipeStartComponent },
     { path: 'new', component: RecipeEditComponent },
     { path: ':id', component: RecipeDetailComponent},
