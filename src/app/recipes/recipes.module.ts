@@ -8,9 +8,9 @@ import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.compo
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipesComponent } from './recipes.component';
-import { CommonModule } from '@angular/common';
 import { AuthGuard } from '../auth/auth.guard';
 import { RecipresResolverService } from './recipeResolver.service';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: 'recipes', component: RecipesComponent, canActivate: [ AuthGuard ], children: [
@@ -32,10 +32,8 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule,
+    SharedModule,
     ReactiveFormsModule
   ]
 })
-export class RecipesModule {
-
-}
+export class RecipesModule {}
