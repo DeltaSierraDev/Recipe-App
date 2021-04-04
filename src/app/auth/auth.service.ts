@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
@@ -22,8 +23,9 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
-  private signupURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAgcDk49qlfEMvN9KafLpV3Zaf-RSFh7Vc';
-  private signinURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAgcDk49qlfEMvN9KafLpV3Zaf-RSFh7Vc';
+
+  private signupURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey;
+  private signinURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey;
 
   signup(email: string, password: string){
     return this.http.post<AuthResponseData>(this.signupURL, {
