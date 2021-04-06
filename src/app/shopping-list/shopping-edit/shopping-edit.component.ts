@@ -3,6 +3,8 @@ import { Ingridient } from './../../shared/ingridient.model';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShoppingListService } from '../shopping-list.service';
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from "../store/shopping-list.actions";
 
 @Component({
   selector: 'app-shopping-edit',
@@ -16,7 +18,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   edditetItemIndex: number;
   edditedIngredinet: Ingridient;
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(private slService: ShoppingListService, private store: Store<{shoppingList: {ingredients: Ingridient[]}}>) { }
 
   ngOnInit(): void {
     this.subscription = this.slService.startedEdditing.subscribe(
@@ -39,11 +41,14 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onSubmit(form: NgForm){
     const value = form.value;
     const newIngredient = new Ingridient(value.name, value.amount);
+    const id = this.edditetItemIndex;
     if(this.edditMode){
-      this.slService.updateIngredient(this.edditetItemIndex, newIngredient)
+      console.log(id);
+      console.log(newIngredient);
+      this.store.dispatch(new ShoppingListActions.UpdateIngredient({index: id, ingredient: newIngredient}));
     }
     else {
-      this.slService.addIngridient(newIngredient);
+      this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient));
     }
     this.edditMode = false;
     form.reset();
@@ -56,7 +61,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   onRemoveItem(){
     this.edditMode = false;
-    this.slService.deleteIngredient(this.edditetItemIndex);
+    console.log(this.edditetItemIndex);
+    this.store.dispatch(new ShoppingListActions.DeleteIngredient(this.edditetItemIndex));
     this.onClearItem;
   }
 

@@ -11,7 +11,7 @@
       <div class="col-xs-12">
         <ul class="list-group">
           <a class="list-group-item" style="cursor: pointer;"
-          *ngFor="let ingridient of ingridients; let i = index;"
+          *ngFor="let ingridient of (ingredients | async).ingredients; let i = index;"
           (click)="onEditItem(i)">
             {{ ingridient.name }} ({{ ingridient.amount }})
           </a>
