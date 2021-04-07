@@ -4,7 +4,7 @@ import { Subject } from "rxjs";
 import { Ingridient } from "../shared/ingridient.model";
 import { Recipe } from "./recipe.model";
 import * as ShoppingListActions from "../shopping-list/store/shopping-list.actions";
-import * as fromShoppingList from './../shopping-list/store/shopping-list.reducer';
+import * as fromApp from '../store/app.reducer'
 
 @Injectable()
 export class RecipeService {
@@ -12,7 +12,7 @@ export class RecipeService {
 
   private recipes: Recipe[] = [];
 
-  constructor(private store: Store<fromShoppingList.AppState>) {}
+  constructor(private store: Store<fromApp.AppState>) {}
 
   getRecipes(){
     return this.recipes.slice();
