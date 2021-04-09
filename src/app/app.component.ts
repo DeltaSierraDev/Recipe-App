@@ -1,5 +1,6 @@
 import { AuthService } from './auth/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService,
+    @Inject(PLATFORM_ID) private platformId){}
 
   title = 'shop-project';
   loadedLink = 'recipes';
 
   ngOnInit(){
-    this.authService.autologin();
+    if (isPlatformBrowser(this.platformId)) {
+      this.authService.autologin();
+      console.log("BROWSER");
+    }
+    console.log("SERVER");
+
   }
 }
