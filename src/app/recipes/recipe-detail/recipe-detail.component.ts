@@ -3,6 +3,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import * as fromApp from '../../store/app.reducer';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -15,21 +18,28 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(private recipeService: RecipeService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private store: Store<fromApp.AppState>) {
   }
 
   ngOnInit(): void {
-    // tslint:disable-next-line: deprecation
     this.route.params.subscribe(
       (params: Params) => {
-        // changed from this.id = +params['id'];
         this.id = +params.id;
-        this.recipe = this.recipeService.getRecipe(this.id);
+        // this.recipe = this.recipeService.getRecipe(this.id);
+        this.store.select('recipes').pipe(
+          map(recipeState => {
+            return recipeState.recipes.find((recipe, index) => {
+              return index === this.id
+            });
+          })
+        ).subscribe(recipe => {
+          this.recipe = recipe;
+        });
       }
     );
   }
 
-  // tslint:disable-next-line: typedef
   onAddToShoppingList(){
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }

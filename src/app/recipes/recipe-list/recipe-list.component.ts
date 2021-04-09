@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs';
 import { DataStorageService } from 'src/app/shared/dataStorage.service';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import * as fromApp from '../../store/app.reducer';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe-list',
@@ -17,17 +20,24 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   id: number;
 
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private dataStorageService: DataStorageService) { }
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageService,
+    private store: Store<fromApp.AppState>
+  ) { }
 
   ngOnInit(): void {
-    // tslint:disable-next-line: deprecation
-    this.subscription = this.recipeService.recipesChanged.subscribe(
+
+    this.subscription = this.store.select('recipes').pipe(
+      map(recipeState => recipeState.recipes)
+    ).subscribe(
       (recipes: Recipe[]) => {
         this.recipes = recipes;
       });
-    this.recipes = this.recipeService.getRecipes();
-    this.dataStorageService.fetchRecipes()
-    .subscribe();
+     this.dataStorageService.fetchRecipes()
+     .subscribe();
   }
 
   // tslint:disable-next-line: typedef
